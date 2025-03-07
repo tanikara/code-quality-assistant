@@ -9,9 +9,17 @@ Code Quality Assistant
 - Παρέχει καθαρό JSON output με αναφορά σφαλμάτων
 - Έχει React frontend για εύκολη αλληλεπίδραση
 
+
+Features
+-Υποστήριξη Python & JavaScript
+-Dark Mode toggle 
+-Ενσωματωμένο Documentation (React Markdown)
+
   Τεχνολογίες που χρησιμοποιούνται
 Backend: FastAPI (Python), pylint, ESLint
 Frontend: React (JavaScript), Fetch API
+
+
 
 Cloning του repository
 git clone https://github.com/your-username/code-quality-assistant.git

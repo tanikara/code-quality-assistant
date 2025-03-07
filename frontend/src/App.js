@@ -3,7 +3,8 @@ import {
   Container, TextField, Button, Select, MenuItem, Typography, Paper, 
   CircularProgress, IconButton, CssBaseline, ThemeProvider, createTheme 
 } from "@mui/material";
-import { Brightness4, Brightness7, Code } from "@mui/icons-material";
+import { Brightness4, Brightness7, Code, MenuBook } from "@mui/icons-material";
+import ReactMarkdown from "react-markdown";
 
 function App() {
   const [code, setCode] = useState("");
@@ -11,6 +12,7 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [showDocs, setShowDocs] = useState(false);
 
   const analyzeCode = async () => {
     setLoading(true);
@@ -38,6 +40,18 @@ function App() {
     },
   });
 
+  const documentation = `
+# 📌 Οδηγίες Χρήσης
+1. Επιλέξτε γλώσσα (Python ή JavaScript)
+2. Εισάγετε τον κώδικά σας στο πεδίο
+3. Πατήστε **"Ανάλυση Κώδικα"**
+4. Δείτε τα αποτελέσματα και τις προτάσεις βελτίωσης!
+
+### 🔹 Υποστηριζόμενες Γλώσσες
+- ✅ Python (Linting με Pylint)
+- ✅ JavaScript (Linting με ESLint)
+`;
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -47,10 +61,21 @@ function App() {
             <Typography variant="h4">
               <Code /> Code Quality Assistant
             </Typography>
-            <IconButton onClick={() => setDarkMode(!darkMode)} color="inherit">
-              {darkMode ? <Brightness7 /> : <Brightness4 />}
-            </IconButton>
+            <div>
+              <IconButton onClick={() => setShowDocs(!showDocs)} color="inherit">
+                <MenuBook />
+              </IconButton>
+              <IconButton onClick={() => setDarkMode(!darkMode)} color="inherit">
+                {darkMode ? <Brightness7 /> : <Brightness4 />}
+              </IconButton>
+            </div>
           </div>
+
+          {showDocs && (
+            <Paper style={{ padding: "20px", marginTop: "20px" }}>
+              <ReactMarkdown>{documentation}</ReactMarkdown>
+            </Paper>
+          )}
 
           <Select
             value={language}
