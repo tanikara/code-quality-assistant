@@ -2,7 +2,7 @@
 Code Quality Assistant
 Ένα API και Web App για την ανάλυση ποιότητας κώδικα σε Python & JavaScript
 
- Περιγραφή
+
 Το Code Quality Assistant είναι ένα εργαλείο ανάλυσης κώδικα που επιτρέπει στον χρήστη να υποβάλει Python ή JavaScript κώδικα και να λαμβάνει ανατροφοδότηση σχετικά με πιθανά σφάλματα και βελτιώσεις.
 
 - Χρησιμοποιεί pylint για Python και ESLint για JavaScript
@@ -28,7 +28,7 @@ cd code-quality-assistant
 Εγκατάσταση εξαρτήσεων
 - Backend (FastAPI)
 python3 -m venv venv
-source venv/bin/activate  # (Windows: venv\Scripts\activate)
+source venv/bin/activate  
 pip install -r requirements.txt
 
 Frontend (React)
